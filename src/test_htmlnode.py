@@ -92,6 +92,10 @@ class TestHTMLNode(unittest.TestCase):
         node = LeafNode("b", "Hello, world!")
         self.assertEqual(node.to_html(), "<b>Hello, world!</b>")
 
+    def test_leaf_no_value(self):
+        node = LeafNode("b", None)
+        self.assertRaises(ValueError, node.to_html)
+
     
 
     def test_parent_to_html_with_children(self):
@@ -109,8 +113,6 @@ class TestHTMLNode(unittest.TestCase):
         )
 
     def test_parent_to_html_with_no_children(self):
-        # child_node_1 = LeafNode("b", "child_node_1")
-        # child_node_2 = LeafNode("p", "child_node_2")
         parent_node = ParentNode("div", [])
         self.assertEqual(
             parent_node.to_html(),
