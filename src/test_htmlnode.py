@@ -76,6 +76,7 @@ class TestHTMLNode(unittest.TestCase):
         node2 = HTMLNode("h1", "header1", "", {"href": "https://www.google.com","target": "_blank",})
         self.assertEqual(node1.props_to_html(), ' href="https://www.google.com" target="_blank"')
 
+#LeafNodes
     def test_leaf_to_html_p(self):
         node = LeafNode("p", "Hello, world!")
         self.assertEqual(node.to_html(), "<p>Hello, world!</p>")
@@ -96,8 +97,12 @@ class TestHTMLNode(unittest.TestCase):
         node = LeafNode("b", None)
         self.assertRaises(ValueError, node.to_html)
 
-    
+    def test_leaf_no_tag(self):
+        node = LeafNode(None, "Raw text")
+        self.assertEqual(node.to_html(), "Raw text")
 
+    
+#ParentNode
     def test_parent_to_html_with_children(self):
         child_node = LeafNode("span", "child")
         parent_node = ParentNode("div", [child_node])
