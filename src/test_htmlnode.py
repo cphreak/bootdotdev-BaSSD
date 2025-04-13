@@ -101,6 +101,9 @@ class TestHTMLNode(unittest.TestCase):
         node = LeafNode(None, "Raw text")
         self.assertEqual(node.to_html(), "Raw text")
 
+    def test_leaf_no_tag(self):
+        node = LeafNode("", "Raw text")
+        self.assertNotEqual(node.to_html(), "Raw text")
     
 #ParentNode
     def test_parent_to_html_with_children(self):
@@ -142,3 +145,4 @@ class TestHTMLNode(unittest.TestCase):
     def test_parent_no_childern(self):
         parent_node = ParentNode("div", None )
         self.assertRaises(ValueError, parent_node.to_html)
+
