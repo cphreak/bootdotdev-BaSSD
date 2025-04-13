@@ -117,7 +117,7 @@ class TestHTMLNode(unittest.TestCase):
             "<div><span><b>grandchild</b></span></div>",
         )
 
-    def test_parent_to_html_with_no_children(self):
+    def test_parent_to_html_with_empty_children(self):
         parent_node = ParentNode("div", [])
         self.assertEqual(
             parent_node.to_html(),
@@ -133,3 +133,12 @@ class TestHTMLNode(unittest.TestCase):
             "<div><b>child_node_1</b><p>child_node_2</p></div>",
         )
 
+    def test_parent_no_tag(self):
+        child_node_1 = LeafNode("b", "child_node_1")
+        child_node_2 = LeafNode("p", "child_node_2")
+        parent_node = ParentNode(None, [child_node_1, child_node_2] )
+        self.assertRaises(ValueError, parent_node.to_html)
+
+    def test_parent_no_childern(self):
+        parent_node = ParentNode("div", None )
+        self.assertRaises(ValueError, parent_node.to_html)
