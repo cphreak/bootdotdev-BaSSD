@@ -4,9 +4,9 @@ from textnode import TextNode, TextType
 
 
 class TestTextNode(unittest.TestCase):
-    def test_eq_NORMAL(self):
-        node = TextNode("This is a text node", TextType.NORMAL)
-        node2 = TextNode("This is a text node", TextType.NORMAL)
+    def test_eq_TEXT(self):
+        node = TextNode("This is a text node", TextType.TEXT)
+        node2 = TextNode("This is a text node", TextType.TEXT)
         self.assertEqual(node, node2)
 
     def test_eq_BOLD(self):
@@ -34,8 +34,8 @@ class TestTextNode(unittest.TestCase):
         node2 = TextNode("This is a text node", TextType.IMAGE)
         self.assertEqual(node, node2)
 
-    def test_neq_NORMAL(self):
-        node = TextNode("This is a text node", TextType.NORMAL)
+    def test_neq_TEXT(self):
+        node = TextNode("This is a text node", TextType.TEXT)
         node2 = TextNode("This is a text node", TextType.BOLD)
         self.assertNotEqual(node, node2)
 
@@ -61,22 +61,22 @@ class TestTextNode(unittest.TestCase):
 
     def test_neq_IMAGE(self):
         node = TextNode("This is a text node", TextType.IMAGE)
-        node2 = TextNode("This is a text node", TextType.NORMAL)
+        node2 = TextNode("This is a text node", TextType.TEXT)
         self.assertNotEqual(node, node2)
 
     def test_eq_url(self):
-        node = TextNode("This is a text node", TextType.NORMAL, "https://ThisFake.com/index.html")
-        node2 = TextNode("This is a text node", TextType.NORMAL, "https://ThisFake.com/index.html")
+        node = TextNode("This is a text node", TextType.TEXT, "https://ThisFake.com/index.html")
+        node2 = TextNode("This is a text node", TextType.TEXT, "https://ThisFake.com/index.html")
         self.assertEqual(node, node2)
 
     def test_neq_url(self):
-        node = TextNode("This is a text node", TextType.NORMAL, "https://ThisIsFake.com/index.html")
-        node2 = TextNode("This is a text node", TextType.NORMAL, "https://ThisFake.com/index.html")
+        node = TextNode("This is a text node", TextType.TEXT, "https://ThisIsFake.com/index.html")
+        node2 = TextNode("This is a text node", TextType.TEXT, "https://ThisFake.com/index.html")
         self.assertNotEqual(node, node2)
 
     def test_neq_url_None(self):
-        node = TextNode("This is a text node", TextType.NORMAL, "https://ThisFake.com/index.html")
-        node2 = TextNode("This is a text node", TextType.NORMAL, )
+        node = TextNode("This is a text node", TextType.TEXT, "https://ThisFake.com/index.html")
+        node2 = TextNode("This is a text node", TextType.TEXT, )
         self.assertNotEqual(node, node2)
 
 
