@@ -76,9 +76,11 @@ def split_nodes_image(old_nodes):
     for node in old_nodes:
         # print(f"node.text: {node.text}")
         split_text = re.split(r"!\[([^\[\]]*)\]\(([^\(\)]*)\)", node.text)
-        # print(f"split_text: {split_text}")
+        print(f"split_text: {split_text}")
         images = extract_markdown_images(node.text)
-        # print(f"images: {images}")
+        print(f"images: {images}")
+        # if images == []:
+            # continue
         alt_text, url = images[0]
         for node in split_text:
             # print(f"node: {node}, alt_text: {alt_text}, url: {url}")
@@ -140,6 +142,14 @@ def text_to_textnodes(text):
     new_nodes = []
     node = TextNode(text, TextType.TEXT)
     new_nodes = split_nodes_image([node])
+    for node in new_nodes:
+        print(f"node: {node}")
+        if node.text_type == TextType.IMAGE:
+            print(f"doing image")
+            new_nodes.append(split_nodes_image([node]))
+        if node.text_type == TextType.LINK:
+            print(f"doing link")
+            new_nodes.append(split_nodes_link([node]))
     print(f"new_nodes: {new_nodes}")
 
 
