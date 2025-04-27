@@ -138,23 +138,23 @@ def split_nodes_link(old_nodes):
 
 
 
-def text_to_textnodes(text):
-    new_nodes = []
-    temp_nodes = []
-    node = TextNode(text, TextType.TEXT)
-    temp_nodes = split_nodes_image([node])
-    for node in temp_nodes:
-        print(f"node: {node}")
-        if node.text_type != TextType.TEXT:
-            new_nodes.append(node)
-        else
-        if node.text_type == TextType.IMAGE:
-            print(f"doing image")
-            new_nodes.append(split_nodes_image([node]))
-        if node.text_type == TextType.LINK:
-            print(f"doing link")
-            new_nodes.append(split_nodes_link([node]))
-    print(f"new_nodes: {new_nodes}")
+# def text_to_textnodes(text):
+#     new_nodes = []
+#     temp_nodes = []
+#     node = TextNode(text, TextType.TEXT)
+#     temp_nodes = split_nodes_image([node])
+#     for node in temp_nodes:
+#         print(f"node: {node}")
+#         if node.text_type != TextType.TEXT:
+#             new_nodes.append(node)
+#         else:
+#         if node.text_type == TextType.IMAGE:
+#             print(f"doing image")
+#             new_nodes.append(split_nodes_image([node]))
+#         if node.text_type == TextType.LINK:
+#             print(f"doing link")
+#             new_nodes.append(split_nodes_link([node]))
+#     print(f"new_nodes: {new_nodes}")
 
 
 

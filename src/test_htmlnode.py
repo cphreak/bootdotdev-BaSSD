@@ -29,7 +29,7 @@ class TestHTMLNode(unittest.TestCase):
         node2 = HTMLNode("h1", "header1", "", {"href": "https://www.google.com","target": "_blank",})
         self.assertEqual(node1.tag, node2.tag)
 
-    @unittest.skip("Broken, no clue why. Will come back to fix")
+    # @unittest.skip("Broken, no clue why. Will come back to fix")
     def test_eq_all(self):
         node1 = HTMLNode("h1", "header1", "", {"href": "https://www.google.com","target": "_blank",})
         node2 = HTMLNode("h1", "header1", "", {"href": "https://www.google.com","target": "_blank",})

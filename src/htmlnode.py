@@ -14,7 +14,7 @@ children: {self.children} \n\
 props: {self.props}"
 
     def to_html(self):
-        raise NotImplementedError
+        raise NotImplementedError(f"to_html no implemented")
 
     def props_to_html(self):
         if self.props == None:
