@@ -146,7 +146,6 @@ class TestText2HTMLNode(unittest.TestCase):
 
 # text_to_textnodes
 # how to keep in order?
-# Just cheating again and again and aagain
 
 
 #     def test_text_to_textnodes(self):
